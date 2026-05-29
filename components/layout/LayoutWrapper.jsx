@@ -67,7 +67,7 @@ export default function LayoutWrapper({ children }) {
         )}
 
         {/* Content Panel - This is the only part that scrolls */}
-        <main className={`flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar ${isGuestRoute ? 'p-0 max-w-none' : 'p-4 sm:p-6 md:p-10 max-w-7xl'} w-full mx-auto pb-24 md:pb-10`}>
+        <main className={`flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar ${isGuestRoute ? 'p-0 max-w-none' : 'p-4 sm:p-6 md:p-10 max-w-7xl'} w-full mx-auto ${showNav ? 'pb-24 md:pb-10' : ''}`}>
           <AnimatePresence mode="wait">
             <motion.div
               key={router.pathname}
