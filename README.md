@@ -1,40 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🌍 Smart EcoKids
 
-## Getting Started
+> An interactive, AI-powered educational platform designed to teach children about ecology, waste management, and sustainability through gamification and hands-on activities.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- **🤖 AI Waste Scanner**: Uses image recognition to classify waste (Organic, Recyclable, Hazardous) and teaches kids how to dispose of it properly.
+- **🎮 Interactive Games**: Drag-and-drop educational mini-games to make learning fun and engaging.
+- **📚 Education Hub**: Comprehensive learning materials about the environment, recycling, and conservation.
+- **📊 Role-Based Dashboards**: 
+  - **Students**: Track progress, quiz scores, and achievements.
+  - **Teachers**: Monitor student performance, class statistics, and activity history.
+- **🏆 Rewards & Gamification**: Confetti celebrations and badges to motivate young learners.
+- **🔐 Secure Authentication**: Handled securely with role-based access control (Student & Teacher).
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) (Pages Router)
+- **Frontend**: React 19, [Tailwind CSS v4](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/) (Animations)
+- **Database**: [Neon Database](https://neon.tech/) (Serverless Postgres) + [Drizzle ORM](https://orm.drizzle.team/)
+- **Authentication**: [NextAuth.js](https://next-auth.js.org/)
+- **File Uploads**: [Cloudinary](https://cloudinary.com/) (for waste scanning)
+- **Data Visualization**: [Recharts](https://recharts.org/)
+- **Icons & UI**: [Lucide React](https://lucide.dev/), Canvas Confetti, and custom UI components.
+
+## 🚀 Getting Started
+
+### Prerequisites
+Make sure you have Node.js (v18+) and npm installed.
+
+### Environment Variables
+Create a `.env.local` file in the root directory and add the following variables (adjust according to your setup):
+```env
+# Database (Neon/Postgres)
+DATABASE_URL="your_neon_db_url"
+
+# NextAuth
+NEXTAUTH_SECRET="your_nextauth_secret"
+NEXTAUTH_URL="http://localhost:3000"
+
+# Cloudinary (for Waste Scanner)
+CLOUDINARY_CLOUD_NAME="your_cloud_name"
+CLOUDINARY_API_KEY="your_api_key"
+CLOUDINARY_API_SECRET="your_api_secret"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/indraafito/EcoKids.git
+   cd EcoKids/smart-ecokids
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Push database schema to Neon (Drizzle):
+   ```bash
+   npx drizzle-kit push
+   ```
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to explore the app.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## 📂 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/components`: Reusable UI components (Buttons, Cards, EcoMascot) and Layouts (Sidebar, BottomNav).
+- `/pages`: Application routes (Dashboard, Scanner, Game, Education) and API endpoints (`/pages/api`).
+- `/lib`: Utility functions, database configuration (`db.js`), and core logic (`wasteClassifier.js`, `cloudinary.js`).
+- `/drizzle`: Database schema (`schema.js`) and migrations.
+- `/hooks`: Custom React hooks (Auth, LocalStorage, MediaQuery).
+- `/data`: Static data for education and game items.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📝 License
+This project is designed and developed for the LIDM (Lomba Inovasi Digital Mahasiswa) competition. All rights reserved.
