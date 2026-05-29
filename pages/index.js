@@ -10,7 +10,7 @@ import Card from '../components/ui/Card';
 import { 
   Camera, Gamepad2, Award, History, 
   Compass, BarChart2, Menu, X, ArrowRight, 
-  Sparkles, Quote, Mail, MapPin
+  Sparkles, Quote, Mail, MapPin, BookOpen
 } from 'lucide-react';
 
 export async function getServerSideProps(context) {
